@@ -1,5 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Mulish } from 'next/font/google'
+ 
+const mulish = Mulish({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'BF1 Entre Amigos 2025',
@@ -12,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="pt-br">
+      <body className={mulish.className}>{children}</body>
     </html>
   )
 }
