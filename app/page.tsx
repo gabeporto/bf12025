@@ -68,7 +68,7 @@ export default function BettingsPage() {
 
   return (
     <div className="min-h-screen bg-[url('/images/f1-background.png')] bg-cover bg-center">
-      <div className="min-h-screen bg-black/80 py-12 px-4">
+      <div className="min-h-screen bg-gray-900 py-12 px-4">
         <div className="container mx-auto max-w-7xl">
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">

@@ -496,7 +496,7 @@ function BettingCard({
         className={`flex items-center gap-2 p-1 rounded ${isCorrect ? "bg-green-100 border border-green-300" : isPartialMatch ? "bg-yellow-50 border border-yellow-200" : ""}`}
       >
         <div
-          className="h-6 w-10 relative rounded-full overflow-hidden border border-gray-200 flex-shrink-0 flex items-center justify-center"
+          className="h-6 w-9 relative rounded-full overflow-hidden border border-gray-200 flex-shrink-0 flex items-center justify-center"
           style={{ backgroundColor: driverTeam?.color || "#e2e2e2" }}
         >
           <span className="text-xs font-bold text-white">{initials}</span>
@@ -596,7 +596,7 @@ function BettingCard({
       <CardContent className="pt-2">
         <div className="mb-2">
           <div className="flex items-center">
-            <Badge variant="outline" className="mr-2 w-10 flex justify-center">
+            <Badge variant="outline" className="mr-2 w-8 flex justify-center">
               PO
             </Badge>
             {renderDriver(
@@ -624,7 +624,7 @@ function BettingCard({
 
             return (
               <div key={index} className="flex items-center">
-                <Badge variant="outline" className="mr-2 w-10 flex justify-center">
+                <Badge variant="outline" className="mr-2 w-8 flex justify-center">
                   P{index + 1}
                 </Badge>
                 {renderDriver(driverId, index, isExactMatch, points, isPartialMatch)}
