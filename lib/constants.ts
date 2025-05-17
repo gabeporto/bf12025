@@ -751,7 +751,7 @@ export const BF1_EMILIA_BETS = [
     photo: "/drivers/isaias.png",
     team: "tororosso",
     teamPhoto: "/teams/tororosso.png",
-    polePosition: "piastri",
+    polePosition: "norris",
     positions: {
       0: "piastri",
       1: "norris",
