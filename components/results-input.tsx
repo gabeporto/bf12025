@@ -98,7 +98,7 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
       <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 text-white">
         <CardTitle className="text-xl flex items-center gap-2">
           <Flag size={18} />
-          Resultados da Corrida
+          Emilia-Romagna F1 GP 2025
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4">
