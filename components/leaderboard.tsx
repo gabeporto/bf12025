@@ -12,6 +12,7 @@ export interface BettingScore {
   betterName: string
   team: string
   photo: string
+  teamPhoto?: string
   score: number
   correctPredictions: number
 }
@@ -101,9 +102,9 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
                     <TableCell>
                       <div className="flex items-center gap-3">
                         <div className="hidden sm:block">
-                          <div className={`${isPodium ? "w-10 h-10" : "w-8 h-8"} rounded-full overflow-hidden border`}>
+                          <div className={`${isPodium ? "w-10 h-10" : "w-8 h-8"} flex items-center justify-center`}>
                             <Image
-                              src={score.photo || "/placeholder.svg"}
+                              src={score.teamPhoto || "/placeholder.svg"}
                               alt={score.betterName}
                               width={isPodium ? 40 : 32}
                               height={isPodium ? 40 : 32}
@@ -210,8 +211,24 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
                       <div className="flex items-center gap-2 lg:text-lg sm:text-sm">
                         {team && (
                           <>
-                            <div className="w-4 h-4 rounded-full" style={{ backgroundColor: team.color }} />
-                            <span className={isPodium ? "font-bold" : "sm:text-sm"}>{team.name}</span>
+                            <div className="sm:hidden w-3 h-3 rounded-full" style={{ backgroundColor: team.color }} />
+                            <div className="flex items-center gap-3">
+                              <div className="hidden sm:block">
+                                <div
+                                  className={`${isPodium ? "w-10 h-10" : "w-8 h-8"
+                                    } flex items-center justify-center`}
+                                >
+                                  <Image
+                                    src={team.logo || "/placeholder.svg"}
+                                    alt={team.name}
+                                    width={isPodium ? 40 : 32}
+                                    height={isPodium ? 40 : 32}
+                                    className="object-cover"
+                                  />
+                                </div>
+                              </div>
+                              <span className={isPodium ? "font-bold" : "sm:text-sm"}>{team.name}</span>
+                            </div>
                           </>
                         )}
                       </div>

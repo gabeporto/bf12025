@@ -301,6 +301,7 @@ export function BettingTable({ results, onScoresCalculated, isLoading }: Betting
           betterName: betting.betterName,
           team: betting.team,
           photo: betting.photo,
+          teamPhoto: betting.teamPhoto,
           score,
           correctPredictions: correctPredictions,
         })

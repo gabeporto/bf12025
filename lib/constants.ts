@@ -4,70 +4,70 @@ export const F1_TEAMS = [
     name: "McLaren",
     color: "#FF8700",
     secondaryColor: "#0090FF",
-    logo: "/images/teams/mclaren.png",
+    logo: "/teams/mclaren.png",
   },
   {
     id: "ferrari",
     name: "Ferrari",
     color: "#DC0000",
     secondaryColor: "#FFFF00",
-    logo: "/images/teams/ferrari.png",
+    logo: "/teams/ferrari.png",
   },
   {
     id: "redbull",
     name: "Red Bull",
     color: "#03015c",
     secondaryColor: "#FF0000",
-    logo: "/images/teams/redbull.png",
+    logo: "/teams/redbull.png",
   },
   {
     id: "mercedes",
     name: "Mercedes",
     color: "#00D2BE",
     secondaryColor: "#000000",
-    logo: "/images/teams/mercedes.png",
+    logo: "/teams/mercedes.png",
   },
   {
     id: "williams",
     name: "Williams",
     color: "#005AFF",
     secondaryColor: "#FFFFFF",
-    logo: "/images/teams/williams.png",
+    logo: "/teams/williams.png",
   },
   {
     id: "alpine",
     name: "Alpine",
     color: "#0090FF",
     secondaryColor: "#FF0000",
-    logo: "/images/teams/alpine.png",
+    logo: "/teams/alpine.png",
   },
   {
     id: "astonmartin",
     name: "Aston Martin",
     color: "#006F62",
     secondaryColor: "#FFFFFF",
-    logo: "/images/teams/astonmartin.png",
+    logo: "/teams/astonmartin.png",
   },
   {
     id: "racingbulls",
     name: "Racing Bulls",
     color: "#8f8cff",
     secondaryColor: "#FF0000",
-    logo: "/images/teams/rb.png",
+    logo: "/teams/redbull.png",
   },
   {
     id: "haas",
-    name: "Haas F1 Team",
+    name: "Haas",
     color: "#1B1E23",
     secondaryColor: "#FF0000",
-    logo: "/images/teams/haas.png",
+    logo: "/teams/haas.png",
   },
   {
     id: "sauber",
     name: "Sauber",
     color: "#00FF00",
     secondaryColor: "#000000",
-    logo: "/images/teams/sauber.png",
+    logo: "/teams/sauber.png",
   },
 ]
 
@@ -171,13 +171,13 @@ export const F1_DRIVERS = [
   {
     id: "ocon",
     name: "Esteban Ocon",
-    team: "Haas F1 Team",
+    team: "Haas",
     teamId: "haas",
   },
   {
     id: "bearman",
     name: "Oliver Bearman",
-    team: "Haas F1 Team",
+    team: "Haas",
     teamId: "haas",
   },
   {
@@ -199,6 +199,7 @@ export const BF1_EMILIA_BETS = [
     id: "1",
     betterName: "João Ellis",
     photo: "/drivers/ellis.png",
+    teamPhoto: "/teams/alfaromeo.png",
     team: "alfaromeo",
     polePosition: "piastri",
     positions: {
@@ -221,6 +222,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Fernando Villeneuve",
     photo: "/drivers/villeneue.png",
     team: "alfaromeo",
+    teamPhoto: "/teams/alfaromeo.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -242,6 +244,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Patrick Santos",
     photo: "/drivers/santos.png",
     team: "astonmartin",
+    teamPhoto: "/teams/astonmartin.png",
     polePosition: "norris",
     positions: {
       0: "norris",
@@ -263,6 +266,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Fernando Jardim",
     photo: "/drivers/jardim.png",
     team: "astonmartin",
+    teamPhoto: "/teams/astonmartin.png",
     polePosition: "piastri",
     positions: {
       0: "norris",
@@ -283,7 +287,8 @@ export const BF1_EMILIA_BETS = [
     id: "5",
     betterName: "Luciano Schumacher",
     photo: "/drivers/schumacer.png",
-    team: "benneton",
+    team: "benetton",
+    teamPhoto: "/teams/benetton.png",
     polePosition: "norris",
     positions: {
       0: "norris",
@@ -304,7 +309,8 @@ export const BF1_EMILIA_BETS = [
     id: "6",
     betterName: "Will Power",
     photo: "/drivers/power.png",
-    team: "benneton",
+    team: "benetton",
+    teamPhoto: "/teams/benetton.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -326,6 +332,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Carlos Dani",
     photo: "/drivers/dani.png",
     team: "bmw",
+    teamPhoto: "/teams/bmw.png",
     polePosition: "verstappen",
     positions: {
       0: "verstappen",
@@ -347,6 +354,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Eduardo Barrichello",
     photo: "/drivers/barrichelo.png",
     team: "bmw",
+    teamPhoto: "/teams/bmw.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -368,6 +376,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Micha Bloom",
     photo: "/drivers/bloom.png",
     team: "ferrari",
+    teamPhoto: "/teams/ferrari.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -389,6 +398,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Alan Jones",
     photo: "/drivers/jones.png",
     team: "ferrari",
+    teamPhoto: "/teams/ferrari.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -410,6 +420,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Joe Nilmacher",
     photo: "/drivers/nilmacher.png",
     team: "forceindia",
+    teamPhoto: "/teams/forceindia.png",
     polePosition: "norris",
     positions: {
       0: "norris",
@@ -431,6 +442,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Michael Andretti",
     photo: "/drivers/andretti.png",
     team: "forceindia",
+    teamPhoto: "/teams/forceindia.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -452,6 +464,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Édipo Silva",
     photo: "/drivers/edipo.png",
     team: "haas",
+    teamPhoto: "/teams/haas.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -473,6 +486,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Marlon Rezende",
     photo: "/drivers/marlon.png",
     team: "haas",
+    teamPhoto: "/teams/haas.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -494,6 +508,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Marcelo Aranha",
     photo: "/drivers/aranha.png",
     team: "lotus",
+    teamPhoto: "/teams/lotus.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -515,6 +530,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Shandro Vilela",
     photo: "/drivers/shandro.png",
     team: "lotus",
+    teamPhoto: "/teams/lotus.png",
     polePosition: "norris",
     positions: {
       0: "norris",
@@ -536,6 +552,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Gilberto Rosário",
     photo: "/drivers/rosario.png",
     team: "mercedes",
+    teamPhoto: "/teams/mercedes.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -557,6 +574,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Bruno Conway",
     photo: "/drivers/conway.png",
     team: "mercedes",
+    teamPhoto: "/teams/mercedes.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -578,6 +596,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Vitor Alexandre",
     photo: "/drivers/vitor.png",
     team: "redbull",
+    teamPhoto: "/teams/redbull.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -599,6 +618,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Elisandra Patrick",
     photo: "/drivers/patrick.png",
     team: "redbull",
+    teamPhoto: "/teams/redbull.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -620,6 +640,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Carlos Moreira",
     photo: "/drivers/moreira.png",
     team: "renault",
+    teamPhoto: "/teams/renault.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -641,6 +662,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Zilton Senna",
     photo: "/drivers/zilton.png",
     team: "renault",
+    teamPhoto: "/teams/renault.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -662,6 +684,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Gabriel Portoleto",
     photo: "/drivers/gabriel.png",
     team: "sauber",
+    teamPhoto: "/teams/sauber.svg",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -683,6 +706,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Roberto Portoleto",
     photo: "/drivers/roberto.png",
     team: "sauber",
+    teamPhoto: "/teams/sauber.svg",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -704,6 +728,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Claudio Franco",
     photo: "/drivers/franco.png",
     team: "tororosso",
+    teamPhoto: "/teams/tororosso.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -725,6 +750,7 @@ export const BF1_EMILIA_BETS = [
     betterName: "Sr. Isaias",
     photo: "/drivers/isaias.png",
     team: "tororosso",
+    teamPhoto: "/teams/tororosso.png",
     polePosition: "piastri",
     positions: {
       0: "piastri",
@@ -749,90 +775,90 @@ export const BF1_TEAMS = [
     name: "Mercedes",
     color: "#00D2BE", // Verde metálico principal
     secondaryColor: "#000000", // Preto
-    logo: "/images/teams/mercedes.png",
+    logo: "/teams/mercedes.png",
   },
   {
     id: "forceindia",
     name: "Force India",
     color: "#F596C8", // Rosa/prata (baseado na era Sahara Force India)
     secondaryColor: "#FFFFFF", // Branco
-    logo: "/images/teams/forceindia.png",
+    logo: "/teams/forceindia.png",
   },
   {
     id: "haas",
-    name: "Haas F1 Team",
+    name: "Haas",
     color: "#454443", // Cinza escuro
     secondaryColor: "#FF0000", // Vermelho
-    logo: "/images/teams/haas.png",
+    logo: "/teams/haas.png",
   },
   {
     id: "alfaromeo",
     name: "Alfa Romeo",
     color: "#C8102E", // Vermelho
     secondaryColor: "#FFFFFF", // Branco
-    logo: "/images/teams/alfaromeo.png",
+    logo: "/teams/alfaromeo.png",
   },
   {
     id: "astonmartin",
     name: "Aston Martin",
     color: "#006F62", // Verde
     secondaryColor: "#FFFFFF", // Branco
-    logo: "/images/teams/astonmartin.png",
+    logo: "/teams/astonmartin.png",
   },
   {
     id: "ferrari",
     name: "Ferrari",
     color: "#DC0000", // Vermelho
     secondaryColor: "#FFFF00", // Amarelo
-    logo: "/images/teams/ferrari.png",
+    logo: "/teams/ferrari.png",
   },
   {
     id: "tororosso",
     name: "Toro Rosso",
     color: "#8f8cff", // Azul (baseado em AlphaTauri/Racing Bulls)
     secondaryColor: "#FF0000", // Vermelho
-    logo: "/images/teams/tororosso.png",
+    logo: "/teams/tororosso.png",
   },
   {
     id: "redbull",
     name: "Red Bull",
     color: "#03015c", // Azul escuro
     secondaryColor: "#FF0000", // Vermelho
-    logo: "/images/teams/redbull.png",
+    logo: "/teams/redbull.png",
   },
   {
     id: "lotus",
     name: "Lotus",
-    color: "#000000", // Preto
+    color: "#948869", // Preto
     secondaryColor: "#FFD700", // Ouro (baseado em Lotus Clássica)
-    logo: "/images/teams/lotus.png",
+    logo: "/teams/lotus.png",
   },
   {
     id: "sauber",
     name: "Sauber",
     color: "#00FF00", // Verde (aproximado, baseado em Stake F1 Team)
     secondaryColor: "#000000", // Preto
-    logo: "/images/teams/sauber.png",
+    logo: "/teams/sauber.svg",
   },
   {
     id: "bmw",
     name: "BMW",
     color: "#00AEEF", // Azul claro (baseado na era BMW Sauber)
     secondaryColor: "#FFFFFF", // Branco
-    logo: "/images/teams/bmw.png",
+    logo: "/teams/bmw.png",
   },
   {
-    id: "benneton",
+    id: "benetton",
     name: "Benetton",
     color: "#00A19A", // Verde turquesa
     secondaryColor: "#FFFFFF", // Branco
-    logo: "/images/teams/benneton.png",
+    logo: "/teams/benetton.png",
   },
   {
     id: "renault",
     name: "Renault",
     color: "#b88612", // Amarelo
     secondaryColor: "#000000", // Preto
-    logo: "/images/teams/renault.png",
+    logo: "/teams/renault.png",
   },
 ];
