@@ -103,22 +103,27 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
       </CardHeader>
       <CardContent className="p-4">
         <div className="space-y-4">
-          <div className="mb-6">
-            <Label htmlFor="pole-position" className="flex items-center gap-2 mb-2">
-              Pole Position
+          <div className="mb-2">
+            <Label htmlFor="pole-position" className="flex items-center gap-2 mb-2 text-sm">
+              Selecione todos os pilotos para atualizar os resultados!
             </Label>
-            <Select value={results.polePosition} onValueChange={handlePoleChange} disabled={isProcessing}>
-              <SelectTrigger id="pole-position">
-                <SelectValue placeholder="Selecione o piloto" />
-              </SelectTrigger>
-              <SelectContent>
-                {F1_DRIVERS.map((driver) => (
-                  <SelectItem key={driver.id} value={driver.id}>
-                    {driver.name} ({driver.team})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex items-center gap-3 mt-5">
+              <Badge variant="outline" className="w-12 flex justify-center shrink-0">
+                POLE
+              </Badge>
+              <Select value={results.polePosition} onValueChange={handlePoleChange} disabled={isProcessing}>
+                <SelectTrigger id="pole-position">
+                  <SelectValue placeholder="Selecione o piloto" />
+                </SelectTrigger>
+                <SelectContent>
+                  {F1_DRIVERS.map((driver) => (
+                    <SelectItem key={driver.id} value={driver.id}>
+                      {driver.name} ({driver.team})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           <div className="space-y-3">

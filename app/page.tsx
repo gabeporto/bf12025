@@ -32,7 +32,7 @@ export default function BettingsPage() {
   const [isProcessing, setIsProcessing] = useState(false)
   const processingTimerRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Verificar se todos os inputs estão preenchidos
+  //Verificar se todos os inputs estão preenchidos
   const allInputsFilled = useMemo(() => {
     const poleIsFilled = results.polePosition !== ""
     const allPositionsFilled = Object.values(results.positions).every((pos) => pos !== "")
