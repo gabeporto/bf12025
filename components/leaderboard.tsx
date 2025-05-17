@@ -24,7 +24,12 @@ interface LeaderboardProps {
 
 export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
   // Ordenar por pontuação (maior para menor)
-  const sortedScores = [...scores].sort((a, b) => b.score - a.score)
+  const sortedScores = [...scores].sort((a, b) => {
+      if (a.score !== b.score) {
+        return b.score - a.score
+      }
+      return b.correctPredictions - a.correctPredictions
+  })
 
   // Calcular pontuação e acertos por equipe
   const teamScores = new Map<string, number>()
@@ -38,7 +43,19 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
   })
 
   // Ordenar equipes por pontuação
-  const sortedTeams = [...teamScores.entries()].sort((a, b) => b[1] - a[1])
+  const sortedTeams = [...teamScores.entries()].sort((a, b) => {
+  const scoreA = a[1]
+  const scoreB = b[1]
+
+  if (scoreA !== scoreB) {
+    return scoreB - scoreA
+  }
+
+  const correctsA = teamCorrects.get(a[0]) || 0
+  const correctsB = teamCorrects.get(b[0]) || 0
+
+  return correctsB - correctsA
+})
 
   return (
     <div className="space-y-6">
