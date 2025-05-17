@@ -25,11 +25,15 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
   // Ordenar por pontuação (maior para menor)
   const sortedScores = [...scores].sort((a, b) => b.score - a.score)
 
-  // Calcular pontuação por equipe
+  // Calcular pontuação e acertos por equipe
   const teamScores = new Map<string, number>()
+  const teamCorrects = new Map<string, number>()
   scores.forEach((score) => {
     const currentTeamScore = teamScores.get(score.team) || 0
     teamScores.set(score.team, currentTeamScore + score.score)
+
+    const currentTeamCorrects = teamCorrects.get(score.team) || 0
+    teamCorrects.set(score.team, currentTeamCorrects + score.correctPredictions)
   })
 
   // Ordenar equipes por pontuação
@@ -54,11 +58,11 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
           <Table>
             <TableHeader>
               <TableRow className="bg-gray-50">
-                <TableHead className="w-[60px]">Pos.</TableHead>
+                <TableHead className="w-[50px]">Pos.</TableHead>
                 <TableHead>Piloto</TableHead>
-                <TableHead>Equipe</TableHead>
+                <TableHead className="hidden sm:table-cell">Equipe</TableHead>
                 <TableHead className="text-right">Pontos</TableHead>
-                <TableHead className="text-right">Acertos</TableHead>
+                <TableHead className="text-center">Acertos</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -96,19 +100,28 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-3">
-                        <div className={`${isPodium ? "w-10 h-10" : "w-8 h-8"} rounded-full overflow-hidden border`}>
-                          <Image
-                            src={score.photo || "/placeholder.svg"}
-                            alt={score.betterName}
-                            width={isPodium ? 40 : 32}
-                            height={isPodium ? 40 : 32}
-                            className="object-cover"
-                          />
+                        <div className="hidden sm:block">
+                          <div className={`${isPodium ? "w-10 h-10" : "w-8 h-8"} rounded-full overflow-hidden border`}>
+                            <Image
+                              src={score.photo || "/placeholder.svg"}
+                              alt={score.betterName}
+                              width={isPodium ? 40 : 32}
+                              height={isPodium ? 40 : 32}
+                              className="object-cover"
+                            />
+                          </div>
                         </div>
-                        <span className={isPodium ? "font-bold text-lg" : ""}>{score.betterName}</span>
+
+                        <div className="block sm:hidden">
+                          {team && (
+                            <div className="w-4 h-4 rounded-full" style={{ backgroundColor: team.color }} />
+                          )}
+                        </div>
+
+                        <span className={isPodium ? "font-bold lg:text-lg sm:text-sm" : "lg:text-md"}>{score.betterName}</span>
                       </div>
                     </TableCell>
-                    <TableCell>
+                    <TableCell className="hidden sm:table-cell">
                       {team && (
                         <div className="flex items-center gap-2">
                           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: team.color }} />
@@ -127,7 +140,7 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
                         score.score
                       )}
                     </TableCell>
-                    <TableCell className="text-right" >{score.correctPredictions}</TableCell>
+                    <TableCell className="text-center" >{score.correctPredictions}</TableCell>
                   </TableRow>
                 )
               })}
@@ -153,9 +166,10 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
           <Table>
             <TableHeader>
               <TableRow className="bg-gray-50">
-                <TableHead className="w-[60px]">Pos.</TableHead>
+                <TableHead className="w-[50px]">Pos.</TableHead>
                 <TableHead>Equipe</TableHead>
                 <TableHead className="text-right">Pontos</TableHead>
+                <TableHead className="text-center">Acertos</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -167,7 +181,10 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
                   <TableRow
                     key={teamId}
                     className={isPodium ? "bg-gray-50" : ""}
-                    style={{ height: isPodium ? "50px" : "auto" }}
+                    style={{
+                      backgroundColor: teamScore === 0 ? '#fcf0f2' : isPodium ? '#edfff5' : 'white',
+                      height: isPodium ? '50px' : 'auto',
+                    }}
                   >
                     <TableCell className="font-bold">
                       <div className="flex items-center gap-2">
@@ -190,32 +207,35 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 lg:text-lg sm:text-sm">
                         {team && (
                           <>
                             <div className="w-4 h-4 rounded-full" style={{ backgroundColor: team.color }} />
-                            <span className={isPodium ? "font-bold text-lg" : ""}>{team.name}</span>
+                            <span className={isPodium ? "font-bold" : "sm:text-sm"}>{team.name}</span>
                           </>
                         )}
                       </div>
                     </TableCell>
-                    <TableCell className="text-right font-bold">
+                    <TableCell className="text-right font-bold sm:text-sm">
                       {isPodium ? (
                         <span
                           className="text-lg"
-                          style={{
-                            color:
-                              index === 0
-                                ? F1_THEME.podium.gold
-                                : index === 1
-                                  ? F1_THEME.podium.silver
-                                  : F1_THEME.podium.bronze,
-                          }}
                         >
                           {teamScore}
                         </span>
                       ) : (
                         teamScore
+                      )}
+                    </TableCell>
+                    <TableCell className="text-center font-bold sm:text-sm">
+                      {isPodium ? (
+                        <span
+                          className="text-lg"
+                        >
+                          {teamCorrects.get(teamId) ?? 0}
+                        </span>
+                      ) : (
+                        teamCorrects.get(teamId) ?? 0
                       )}
                     </TableCell>
                   </TableRow>

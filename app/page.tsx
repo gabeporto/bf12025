@@ -57,7 +57,7 @@ export default function BettingsPage() {
 
       setTimeout(() => {
         setIsProcessing(false)
-      }, 500)
+      }, 100)
     }, 100)
   }
 }, [])

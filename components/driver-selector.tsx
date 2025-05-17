@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import type { UseFormReturn } from "react-hook-form"
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { F1_DRIVERS, F1_TEAMS, BF1_TEAMS } from "@/lib/constants"
+import { F1_DRIVERS, F1_TEAMS } from "@/lib/constants"
 import { getDriverInitials } from "@/lib/utils"
 
 interface DriverSelectorProps {

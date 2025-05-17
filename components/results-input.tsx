@@ -112,7 +112,12 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
                 POLE
               </Badge>
               <Select value={results.polePosition} onValueChange={handlePoleChange} disabled={isProcessing}>
-                <SelectTrigger id="pole-position">
+                <SelectTrigger
+                  id="pole-position"
+                  className={
+                    results.polePosition ? "border-2 border-green-500" : ""
+                  }
+                >
                   <SelectValue placeholder="Selecione o piloto" />
                 </SelectTrigger>
                 <SelectContent>
@@ -127,32 +132,48 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
           </div>
 
           <div className="space-y-3">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <Badge variant="outline" className="w-12 flex justify-center shrink-0">
-                  P{index + 1}
-                </Badge>
-                <div className="flex-1">
-                  <Select
-                    value={results.positions[index]}
-                    onValueChange={(value) => handlePositionChange(index, value)}
-                    disabled={isProcessing}
-                  >
-                    <SelectTrigger id={`position-${index}`}>
-                      <SelectValue placeholder="Selecione o piloto" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {F1_DRIVERS.map((driver) => (
-                        <SelectItem key={driver.id} value={driver.id}>
-                          {driver.name} ({driver.team})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+            {Array.from({ length: 12 }).map((_, index) => {
+              const currentValue = results.positions[index]
+              const values = Object.values(results.positions).filter((_, i) => i !== index)
+              const isDuplicate = currentValue && values.includes(currentValue)
+
+              return (
+                <div key={index} className="flex items-center gap-3">
+                  <Badge variant="outline" className="w-12 flex justify-center shrink-0">
+                    P{index + 1}
+                  </Badge>
+                  <div className="flex-1">
+                    <Select
+                      value={currentValue}
+                      onValueChange={(value) => handlePositionChange(index, value)}
+                      disabled={isProcessing}
+                    >
+                      <SelectTrigger
+                        id={`position-${index}`}
+                        className={
+                          currentValue
+                            ? isDuplicate
+                              ? "border-red-500 border-2"
+                              : "border-green-500 border-2"
+                            : ""
+                        }
+                      >
+                        <SelectValue placeholder="Selecione o piloto" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {F1_DRIVERS.map((driver) => (
+                          <SelectItem key={driver.id} value={driver.id}>
+                            {driver.name} ({driver.team})
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
+
         </div>
       </CardContent>
     </Card>
