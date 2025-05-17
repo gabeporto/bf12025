@@ -70,18 +70,6 @@ export default function BettingsPage() {
     <div className="min-h-screen bg-[url('/images/f1-background.png')] bg-cover bg-center">
       <div className="min-h-screen bg-black/80 py-12 px-4">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-6">
-            <Button
-              variant="outline"
-              asChild
-              className="bg-white/90 hover:bg-white border-red-600 text-red-600 hover:text-red-700"
-            >
-              <Link href="/bet" className="flex items-center gap-2">
-                <ArrowLeft size={16} />
-                Voltar para apostas
-              </Link>
-            </Button>
-          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
             <div className="lg:col-span-1">

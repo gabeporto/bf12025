@@ -9,7 +9,7 @@ export const F1_THEME = {
   // Cores para o pódio
   podium: {
     gold: "#d1b102",
-    silver: "#C0C0C0",
+    silver: "#949494",
     bronze: "#CD7F32",
   },
 
