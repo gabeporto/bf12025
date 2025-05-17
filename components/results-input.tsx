@@ -105,7 +105,7 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
         <div className="space-y-4">
           <div className="mb-2">
             <Label htmlFor="pole-position" className="flex items-center gap-2 mb-2 text-sm">
-              Selecione todos os pilotos para atualizar os resultados!
+              Selecione os pilotos para atualizar os resultados parciais!
             </Label>
             <div className="flex items-center gap-3 mt-5">
               <Badge variant="outline" className="w-12 flex justify-center shrink-0">

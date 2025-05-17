@@ -43,23 +43,25 @@ export default function BettingsPage() {
   const poleIsFilled = newResults.polePosition !== ""
   const allPositionsFilled = Object.values(newResults.positions).every((pos) => pos !== "")
   const allFilled = poleIsFilled && allPositionsFilled
+  setResults(newResults)
 
-  // Limpar o timer anterior se existir
-  if (processingTimerRef.current) {
-    clearTimeout(processingTimerRef.current)
-  }
+  // // Limpar o timer anterior se existir
+  // if (processingTimerRef.current) {
+  //   clearTimeout(processingTimerRef.current)
+  // }
 
-  if (allFilled) {
-    setIsProcessing(true)
+  // if (allFilled) {
+  //   setIsProcessing(true)
 
-    processingTimerRef.current = setTimeout(() => {
-      setResults(newResults)
+  //   processingTimerRef.current = setTimeout(() => {
+  //     setResults(newResults)
 
-      setTimeout(() => {
-        setIsProcessing(false)
-      }, 100)
-    }, 100)
-  }
+  //     setTimeout(() => {
+  //       setIsProcessing(false)
+  //     }, 100)
+  //   }, 100)
+  // }
+
 }, [])
 
   const handleScoresCalculated = useCallback((newScores: BettingScore[]) => {
@@ -97,7 +99,7 @@ export default function BettingsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6 bg-white">
-              <BettingTable results={results} onScoresCalculated={handleScoresCalculated} isLoading={isProcessing && allInputsFilled} />
+              <BettingTable results={results} onScoresCalculated={handleScoresCalculated} isLoading={false} />
             </CardContent>
           </Card>
         </div>
