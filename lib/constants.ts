@@ -198,7 +198,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "1",
     betterName: "João Ellis",
-    photo: "/placeholder.svg?height=100&width=100&text=JE",
+    photo: "/drivers/ellis.png",
     team: "alfaromeo",
     polePosition: "piastri",
     positions: {
@@ -219,7 +219,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "2",
     betterName: "Fernando Villeneuve",
-    photo: "/placeholder.svg?height=100&width=100&text=FV",
+    photo: "/drivers/villeneue.png",
     team: "alfaromeo",
     polePosition: "piastri",
     positions: {
@@ -240,7 +240,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "3",
     betterName: "Patrick Santos",
-    photo: "/placeholder.svg?height=100&width=100&text=PS",
+    photo: "/drivers/santos.png",
     team: "astonmartin",
     polePosition: "norris",
     positions: {
@@ -261,7 +261,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "4",
     betterName: "Fernando Jardim",
-    photo: "/placeholder.svg?height=100&width=100&text=FJ",
+    photo: "/drivers/jardim.png",
     team: "astonmartin",
     polePosition: "piastri",
     positions: {
@@ -282,7 +282,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "5",
     betterName: "Luciano Schumacher",
-    photo: "/placeholder.svg?height=100&width=100&text=LS",
+    photo: "/drivers/schumacer.png",
     team: "benneton",
     polePosition: "norris",
     positions: {
@@ -303,7 +303,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "6",
     betterName: "Will Power",
-    photo: "/placeholder.svg?height=100&width=100&text=WP",
+    photo: "/drivers/power.png",
     team: "benneton",
     polePosition: "piastri",
     positions: {
@@ -324,7 +324,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "7",
     betterName: "Carlos Dani",
-    photo: "/placeholder.svg?height=100&width=100&text=CD",
+    photo: "/drivers/dani.png",
     team: "bmw",
     polePosition: "verstappen",
     positions: {
@@ -345,7 +345,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "8",
     betterName: "Eduardo Barrichello",
-    photo: "/placeholder.svg?height=100&width=100&text=EB",
+    photo: "/drivers/barrichelo.png",
     team: "bmw",
     polePosition: "piastri",
     positions: {
@@ -366,7 +366,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "9",
     betterName: "Micha Bloom",
-    photo: "/placeholder.svg?height=100&width=100&text=MB",
+    photo: "/drivers/bloom.png",
     team: "ferrari",
     polePosition: "piastri",
     positions: {
@@ -387,7 +387,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "10",
     betterName: "Alan Jones",
-    photo: "/placeholder.svg?height=100&width=100&text=AJ",
+    photo: "/drivers/jones.png",
     team: "ferrari",
     polePosition: "piastri",
     positions: {
@@ -408,7 +408,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "11",
     betterName: "Joe Nilmacher",
-    photo: "/placeholder.svg?height=100&width=100&text=JN",
+    photo: "/drivers/nilmacher.png",
     team: "forceindia",
     polePosition: "norris",
     positions: {
@@ -429,7 +429,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "12",
     betterName: "Michael Andretti",
-    photo: "/placeholder.svg?height=100&width=100&text=MA",
+    photo: "/drivers/andretti.png",
     team: "forceindia",
     polePosition: "piastri",
     positions: {
@@ -450,7 +450,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "13",
     betterName: "Édipo Silva",
-    photo: "/placeholder.svg?height=100&width=100&text=ES",
+    photo: "/drivers/edipo.png",
     team: "haas",
     polePosition: "piastri",
     positions: {
@@ -471,7 +471,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "14",
     betterName: "Marlon Rezende",
-    photo: "/placeholder.svg?height=100&width=100&text=MR",
+    photo: "/drivers/marlon.png",
     team: "haas",
     polePosition: "piastri",
     positions: {
@@ -492,7 +492,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "15",
     betterName: "Marcelo Aranha",
-    photo: "/placeholder.svg?height=100&width=100&text=MA",
+    photo: "/drivers/aranha.png",
     team: "lotus",
     polePosition: "piastri",
     positions: {
@@ -513,7 +513,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "16",
     betterName: "Shandro Vilela",
-    photo: "/placeholder.svg?height=100&width=100&text=SV",
+    photo: "/drivers/shandro.png",
     team: "lotus",
     polePosition: "norris",
     positions: {
@@ -534,7 +534,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "17",
     betterName: "Gilberto Rosário",
-    photo: "/placeholder.svg?height=100&width=100&text=GR",
+    photo: "/drivers/rosario.png",
     team: "mercedes",
     polePosition: "piastri",
     positions: {
@@ -555,7 +555,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "18",
     betterName: "Bruno Conway",
-    photo: "/placeholder.svg?height=100&width=100&text=BC",
+    photo: "/drivers/conway.png",
     team: "mercedes",
     polePosition: "piastri",
     positions: {
@@ -576,7 +576,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "19",
     betterName: "Vitor Alexandre",
-    photo: "/placeholder.svg?height=100&width=100&text=VA",
+    photo: "/drivers/vitor.png",
     team: "redbull",
     polePosition: "piastri",
     positions: {
@@ -597,7 +597,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "20",
     betterName: "Elisandra Patrick",
-    photo: "/placeholder.svg?height=100&width=100&text=EP",
+    photo: "/drivers/patrick.png",
     team: "redbull",
     polePosition: "piastri",
     positions: {
@@ -618,7 +618,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "21",
     betterName: "Carlos Moreira",
-    photo: "/placeholder.svg?height=100&width=100&text=CM",
+    photo: "/drivers/moreira.png",
     team: "renault",
     polePosition: "piastri",
     positions: {
@@ -639,7 +639,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "22",
     betterName: "Zilton Senna",
-    photo: "/placeholder.svg?height=100&width=100&text=ZS",
+    photo: "/drivers/zilton.png",
     team: "renault",
     polePosition: "piastri",
     positions: {
@@ -660,7 +660,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "23",
     betterName: "Gabriel Portoleto",
-    photo: "/placeholder.svg?height=100&width=100&text=GP",
+    photo: "/drivers/gabriel.png",
     team: "sauber",
     polePosition: "piastri",
     positions: {
@@ -681,7 +681,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "24",
     betterName: "Roberto Portoleto",
-    photo: "/placeholder.svg?height=100&width=100&text=RP",
+    photo: "/drivers/roberto.png",
     team: "sauber",
     polePosition: "piastri",
     positions: {
@@ -702,7 +702,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "25",
     betterName: "Claudio Franco",
-    photo: "/placeholder.svg?height=100&width=100&text=CF",
+    photo: "/drivers/franco.png",
     team: "tororosso",
     polePosition: "piastri",
     positions: {
@@ -723,7 +723,7 @@ export const BF1_EMILIA_BETS = [
   {
     id: "26",
     betterName: "Sr. Isaias",
-    photo: "/placeholder.svg?height=100&width=100&text=SI",
+    photo: "/drivers/isaias.png",
     team: "tororosso",
     polePosition: "piastri",
     positions: {
