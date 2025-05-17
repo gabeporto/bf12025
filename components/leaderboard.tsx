@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { F1_TEAMS } from "@/lib/constants"
+import { BF1_TEAMS } from "@/lib/constants"
 import { F1_THEME } from "@/lib/theme"
 import { Loader2 } from "lucide-react"
 import Image from "next/image"
@@ -63,7 +63,7 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
             </TableHeader>
             <TableBody>
               {sortedScores.map((score, index) => {
-                const team = F1_TEAMS.find((t) => t.id === score.team)
+                const team = BF1_TEAMS.find((t) => t.id === score.team)
                 const isPodium = index < 3
 
                 return (
@@ -160,7 +160,7 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
             </TableHeader>
             <TableBody>
               {sortedTeams.map(([teamId, teamScore], index) => {
-                const team = F1_TEAMS.find((t) => t.id === teamId)
+                const team = BF1_TEAMS.find((t) => t.id === teamId)
                 const isPodium = index < 3
 
                 return (
