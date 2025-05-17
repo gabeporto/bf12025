@@ -64,7 +64,7 @@ function BettingCard({
     isPartialMatch = false,
   ) => {
     const driver = F1_DRIVERS.find((d) => d.id === driverId)
-    if (!driver) return "???"
+    if (!driver) return "-"
 
     const driverTeam = F1_TEAMS.find((t) => t.id === driver.teamId)
     const initials = getDriverInitials(driver.name)
@@ -172,7 +172,7 @@ function BettingCard({
       </CardHeader>
 
       <CardContent className="pt-2">
-        <div className="mb-2">
+        <div className="mb-5">
           <div className="flex items-center">
             <Badge variant="outline" className="mr-2 w-8 flex justify-center">
               PO

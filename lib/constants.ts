@@ -16,7 +16,7 @@ export const F1_TEAMS = [
   {
     id: "redbull",
     name: "Red Bull",
-    color: "#0600EF",
+    color: "#03015c",
     secondaryColor: "#FF0000",
     logo: "/images/teams/redbull.png",
   },
@@ -51,7 +51,7 @@ export const F1_TEAMS = [
   {
     id: "racingbulls",
     name: "Racing Bulls",
-    color: "#0032FF",
+    color: "#8f8cff",
     secondaryColor: "#FF0000",
     logo: "/images/teams/rb.png",
   },
@@ -206,7 +206,7 @@ export const BF1_EMILIA_BETS = [
       1: "norris",
       2: "russell",
       3: "verstappen",
-      4: "lecrec",
+      4: "leclerc",
       5: "gasly",
       6: "hamilton",
       7: "tsunoda",
@@ -789,14 +789,14 @@ export const BF1_TEAMS = [
   {
     id: "tororosso",
     name: "Toro Rosso",
-    color: "#1f317a", // Azul (baseado em AlphaTauri/Racing Bulls)
+    color: "#8f8cff", // Azul (baseado em AlphaTauri/Racing Bulls)
     secondaryColor: "#FF0000", // Vermelho
     logo: "/images/teams/tororosso.png",
   },
   {
     id: "redbull",
     name: "Red Bull",
-    color: "#0600EF", // Azul escuro
+    color: "#03015c", // Azul escuro
     secondaryColor: "#FF0000", // Vermelho
     logo: "/images/teams/redbull.png",
   },
