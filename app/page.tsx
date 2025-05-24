@@ -11,37 +11,38 @@ export default function HomePage() {
     return (
         <div className="min-h-screen bg-[url('/images/f1-background.png')] bg-cover bg-center">
             <div className="min-h-screen bg-gray-900 py-12 px-4">
-                <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {F1_GPS.map((gp, index) => (
-                        <Link
-                            key={gp.id}
-                            href={gp.active ? `/${gp.id}` : '#'}
-                            passHref
-                        >
-                            <Card
-                                className={`border-0 shadow-xl overflow-hidden cursor-pointer ${!gp.active ? 'opacity-50 pointer-events-none cursor-none' : ''
-                                    }`}
+                <div className="container mx-auto max-w-7xl">
+                    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {F1_GPS.map((gp, index) => (
+                            <Link
+                                key={gp.id}
+                                href={gp.active ? `/${gp.id}` : '#'}
+                                passHref
                             >
-                                <CardHeader
-                                    className="text-white"
-                                    style={{
-                                        background: F1_THEME.gradients.header,
-                                        borderBottom: `4px solid ${F1_THEME.primary}`,
-                                    }}
+                                <Card
+                                    className={`border-0 shadow-xl overflow-hidden cursor-pointer ${!gp.active ? 'opacity-50 pointer-events-none cursor-none' : ''
+                                        }`}
                                 >
-                                    <div className="flex items-center justify-center gap-3 mb-2">
-                                        <Flag size={24} className="text-white" />
-                                        <CardTitle className="text-1xl font-bold text-center">{gp.name}</CardTitle>
-                                    </div>
-                                </CardHeader>
-                                <CardContent className="p-6 bg-white">
-                                    <p>Corrida {index + 1}</p>
-                                </CardContent>
-                            </Card>
-                        </Link>
-                    ))}
-                </section>
-
+                                    <CardHeader
+                                        className="text-white"
+                                        style={{
+                                            background: F1_THEME.gradients.header,
+                                            borderBottom: `4px solid ${F1_THEME.primary}`,
+                                        }}
+                                    >
+                                        <div className="flex items-center justify-center gap-3">
+                                            <Flag size={24} className="text-white" />
+                                            <CardTitle className="text-xl font-bold text-center">{gp.name}</CardTitle>
+                                        </div>
+                                    </CardHeader>
+                                    <CardContent className="p-6 bg-white">
+                                        <p>Corrida {index + 1}</p>
+                                    </CardContent>
+                                </Card>
+                            </Link>
+                        ))}
+                    </section>
+                </div>
             </div>
         </div >
     );
