@@ -70,7 +70,7 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
         )}
 
         <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 text-white">
-          <CardTitle className="text-xl">Classificação da Corrida</CardTitle>
+          <CardTitle className="text-xl">Classificação por Piloto</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
           <Table>

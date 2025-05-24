@@ -10,8 +10,8 @@ import { Badge } from "@/components/ui/badge"
 import type { RaceResults } from "./results-input"
 import type { BettingScore } from "./leaderboard"
 import { Loader2 } from "lucide-react"
-import { BF1_EMILIA_BETS } from "@/lib/constants"
-
+import { usePathname } from "next/navigation"
+import * as bets from "@/lib/bets"
 
 // Função para agrupar apostas em conjuntos de 4
 function chunkArray<T>(array: T[], size: number): T[][] {
@@ -37,7 +37,7 @@ function BettingCard({
   isLoading,
   detailedScores,
 }: {
-  betting: (typeof BF1_EMILIA_BETS)[0]
+  betting: (typeof bets.emilia)[0]
   results: RaceResults
   score: number
   rank: number
@@ -222,9 +222,15 @@ interface BettingTableProps {
 }
 
 export function BettingTable({ results, onScoresCalculated, isLoading }: BettingTableProps) {
-  const [bettings] = useState(BF1_EMILIA_BETS)
+  const pathname = usePathname();
+  const gp = pathname.split("/").pop() as keyof typeof bets;
+  const [bettings] = useState(() => bets[gp] || []);
   const [calculationInProgress, setCalculationInProgress] = useState(false)
   const [detailedScores, setDetailedScores] = useState<Record<string, any>>({})
+
+  if(!bettings || bettings.length === 0) {
+    return (<></>)
+  }
 
   // Calcular pontuações quando os resultados mudam - otimizado com useCallback
   const calculateScores = useCallback(() => {

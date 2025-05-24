@@ -18,9 +18,10 @@ export interface RaceResults {
 interface ResultsInputProps {
   onResultsChange: (results: RaceResults) => void
   isProcessing: boolean
+  gpName: string
 }
 
-export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProps) {
+export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsInputProps) {
   const [results, setResults] = useState<RaceResults>({
     polePosition: "",
     positions: {
@@ -98,7 +99,7 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
       <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 text-white">
         <CardTitle className="text-xl flex items-center gap-2">
           <Flag size={18} />
-          Emilia-Romagna F1 GP 2025
+          {gpName + " " + new Date().getFullYear()}
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4">
@@ -121,7 +122,7 @@ export function ResultsInput({ onResultsChange, isProcessing }: ResultsInputProp
                   <SelectValue placeholder="Selecione o piloto" />
                 </SelectTrigger>
                 <SelectContent>
-                  {F1_DRIVERS.map((driver) => (
+                  {F1_DRIVERS.filter((driver) => driver.active === true).map((driver) => (
                     <SelectItem key={driver.id} value={driver.id}>
                       {driver.name} ({driver.team})
                     </SelectItem>
