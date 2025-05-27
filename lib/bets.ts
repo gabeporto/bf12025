@@ -946,7 +946,7 @@ export const monaco = [
     "id": "17",
     "betterName": "Gilberto Rosário",
     "nickname": "17",
-    "photo": "/drivers/rosário.png",
+    "photo": "/drivers/rosario.png",
     "team": "mercedes",
     "teamPhoto": "/teams/mercedes.png",
     "polePosition": "leclerc",
