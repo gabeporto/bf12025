@@ -46,7 +46,7 @@ const BF1_BETS = data.map((row: any, index: number) => {
       id: driverFiltered.id,
       betterName: driverFiltered.betterName,
       nickname: driverFiltered.id,
-      photo: `/drivers/${driverFiltered.nickname.toLowerCase()}.png`,
+      photo: `/drivers/${normalize(driverFiltered.nickname)}.png`,
       team: driverFiltered.team,
       teamPhoto: `/teams/${driverFiltered.team}.png`,
       polePosition: p0,
@@ -72,3 +72,7 @@ const BF1_BETS = data.map((row: any, index: number) => {
 fs.writeFileSync("BF1_BETS.json", JSON.stringify(BF1_BETS, null, 2));
 
 console.log("Array BF1_BETS gerado com sucesso!");
+
+function normalize(str : string) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
