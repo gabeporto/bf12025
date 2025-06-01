@@ -374,7 +374,7 @@ export const F1_GPS = [
   { id: "miami", name: "GP de Miami", active: false },
   { id: "emilia", name: "GP da Emília-Romanha", active: true },
   { id: "monaco", name: "GP de Mônaco", active: true },
-  { id: "espanha", name: "GP da Espanha", active: false },
+  { id: "espanha", name: "GP da Espanha", active: true },
   { id: "canada", name: "GP do Canadá", active: false },
   { id: "austria", name: "GP da Áustria", active: false },
   { id: "grabretanha", name: "GP da Grã-Bretanha", active: false },
