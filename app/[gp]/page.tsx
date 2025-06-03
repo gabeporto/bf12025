@@ -75,7 +75,7 @@ export default function BettingsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
             <div className="lg:col-span-1">
-              <ResultsInput onResultsChange={handleResultsChange} isProcessing={isProcessing} gpName={gp} />
+              <ResultsInput onResultsChange={handleResultsChange} isProcessing={isProcessing} gpName={gp} gpId={pathname} />
             </div>
             <div className="lg:col-span-3">
               <Leaderboard scores={scores} isLoading={isProcessing && allInputsFilled} />

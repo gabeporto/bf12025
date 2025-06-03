@@ -1,3 +1,5 @@
+import { finished } from "stream";
+
 export const F1_TEAMS = [
   {
     id: "mclaren",
@@ -390,4 +392,61 @@ export const F1_GPS = [
   { id: "lasvegas", name: "GP de Las Vegas", active: false },
   { id: "catar", name: "GP do Catar", active: false },
   { id: "abudhabi", name: "GP de Abu Dhabi", active: false }
+];
+
+export const F1_GPS_FINISHED = [
+  {
+    granPrixId: "emilia",
+    polePosition: "piastri",
+    positions: {
+      0: "verstappen",
+      1: "norris",
+      2: "piastri",
+      3: "hamilton",
+      4: "albon",
+      5: "leclerc",
+      6: "russell",
+      7: "sainz",
+      8: "hadjar",
+      9: "tsunoda",
+      10: "alonso",
+      11: "hulkenberg",
+    }
+  },
+  {
+    granPrixId: "monaco",
+    polePosition: "norris",
+    positions: {
+      0: "norris",
+      1: "leclerc",
+      2: "piastri",
+      3: "verstappen",
+      4: "hamilton",
+      5: "hadjar",
+      6: "ocon",
+      7: "lawson",
+      8: "albon",
+      9: "sainz",
+      10: "russell",
+      11: "bearman",
+    }
+  },
+  {
+    granPrixId: "espanha",
+    polePosition: "piastri",
+    positions: {
+      0: "piastri",
+      1: "norris",
+      2: "leclerc",
+      3: "russell",
+      4: "hulkenberg",
+      5: "hamilton",
+      6: "hadjar",
+      7: "gasly",
+      8: "alonso",
+      9: "verstappen",
+      10: "lawson",
+      11: "bortoleto",
+    }
+  },
 ];

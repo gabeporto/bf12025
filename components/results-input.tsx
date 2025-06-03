@@ -1,14 +1,26 @@
 "use client"
 
-import { useState, useCallback, useRef } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { F1_DRIVERS } from "@/lib/constants"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useState, useCallback, useRef, useEffect } from "react"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Flag, Loader2 } from "lucide-react"
+import { F1_DRIVERS, F1_GPS_FINISHED } from "@/lib/constants"
 
 export interface RaceResults {
+  granPrixId?: string
   polePosition: string
   positions: {
     [key: number]: string
@@ -19,43 +31,56 @@ interface ResultsInputProps {
   onResultsChange: (results: RaceResults) => void
   isProcessing: boolean
   gpName: string
+  gpId: string
 }
 
-export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsInputProps) {
+export function ResultsInput({
+  onResultsChange,
+  isProcessing,
+  gpName,
+  gpId,
+}: ResultsInputProps) {
+  const [isRaceFinished, setIsRaceFinished] = useState<boolean>(false)
   const [results, setResults] = useState<RaceResults>({
+    granPrixId: "",
     polePosition: "",
-    positions: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-      6: "",
-      7: "",
-      8: "",
-      9: "",
-      10: "",
-      11: "",
-    },
+    positions: Object.fromEntries(Array(12).fill(null).map((_, i) => [i, ""])),
   })
 
-  // Usar um debounce para evitar atualizações muito frequentes
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null)
+
+  useEffect(() => {
+    if (!gpName) return
+
+    const resultData = F1_GPS_FINISHED.find(
+      (object) => object.granPrixId === gpId.slice(1)
+    )
+
+    if (resultData) {
+      setResults(resultData)
+      setIsRaceFinished(true)
+      onResultsChange(resultData)
+    } else {
+      setResults({
+        granPrixId: "",
+        polePosition: "",
+        positions: Object.fromEntries(Array(12).fill(null).map((_, i) => [i, ""])),
+      })
+      setIsRaceFinished(false)
+    }
+  }, [gpName, gpId])
 
   const updateResults = useCallback(
     (newResults: RaceResults) => {
-      // Limpar o timer anterior se existir
       if (debounceTimerRef.current) {
         clearTimeout(debounceTimerRef.current)
       }
 
-      // Definir um novo timer para atualizar os resultados após 300ms
       debounceTimerRef.current = setTimeout(() => {
         onResultsChange(newResults)
       }, 300)
     },
-    [onResultsChange],
+    [onResultsChange]
   )
 
   const handlePoleChange = useCallback(
@@ -67,7 +92,7 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
       setResults(newResults)
       updateResults(newResults)
     },
-    [results, updateResults],
+    [results, updateResults]
   )
 
   const handlePositionChange = useCallback(
@@ -82,7 +107,7 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
       setResults(newResults)
       updateResults(newResults)
     },
-    [results, updateResults],
+    [results, updateResults]
   )
 
   return (
@@ -91,7 +116,9 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
         <div className="absolute inset-0 bg-white/70 flex items-center justify-center z-10">
           <div className="flex flex-col items-center">
             <Loader2 className="h-8 w-8 animate-spin text-red-600 mb-2" />
-            <span className="text-sm font-medium text-gray-700">Processando resultados...</span>
+            <span className="text-sm font-medium text-gray-700">
+              Processando resultados...
+            </span>
           </div>
         </div>
       )}
@@ -105,14 +132,21 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
       <CardContent className="p-4">
         <div className="space-y-4">
           <div className="mb-2">
-            <Label htmlFor="pole-position" className="flex items-center gap-2 mb-2 text-sm">
+            <Label
+              htmlFor="pole-position"
+              className="flex items-center gap-2 mb-2 text-sm"
+            >
               Selecione os pilotos para atualizar os resultados parciais!
             </Label>
             <div className="flex items-center gap-3 mt-5">
               <Badge variant="outline" className="w-12 flex justify-center shrink-0">
                 POLE
               </Badge>
-              <Select value={results.polePosition} onValueChange={handlePoleChange} disabled={isProcessing}>
+              <Select
+                value={results.polePosition}
+                onValueChange={handlePoleChange}
+                disabled={isProcessing || isRaceFinished}
+              >
                 <SelectTrigger
                   id="pole-position"
                   className={
@@ -122,7 +156,7 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
                   <SelectValue placeholder="Selecione o piloto" />
                 </SelectTrigger>
                 <SelectContent>
-                  {F1_DRIVERS.filter((driver) => driver.active === true).map((driver) => (
+                  {F1_DRIVERS.filter((driver) => driver.active).map((driver) => (
                     <SelectItem key={driver.id} value={driver.id}>
                       {driver.name} ({driver.team})
                     </SelectItem>
@@ -147,7 +181,7 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
                     <Select
                       value={currentValue}
                       onValueChange={(value) => handlePositionChange(index, value)}
-                      disabled={isProcessing}
+                      disabled={isProcessing || isRaceFinished}
                     >
                       <SelectTrigger
                         id={`position-${index}`}
@@ -174,7 +208,6 @@ export function ResultsInput({ onResultsChange, isProcessing , gpName}: ResultsI
               )
             })}
           </div>
-
         </div>
       </CardContent>
     </Card>
