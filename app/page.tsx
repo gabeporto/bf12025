@@ -35,8 +35,20 @@ export default function HomePage() {
                                             <CardTitle className="text-xl font-bold text-center">{gp.name}</CardTitle>
                                         </div>
                                     </CardHeader>
-                                    <CardContent className="p-6 bg-white">
+                                    <CardContent className="p-6 bg-white flex items-baseline justify-between">
                                         <p>Corrida {index + 1}</p>
+                                        {gp.active ? (
+                                            <span className="relative flex h-3 w-3">
+                                                <span
+                                                    className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${gp.isFinished ? "bg-red-500" : "bg-green-500"
+                                                        }`}
+                                                ></span>
+                                                <span
+                                                    className={`relative inline-flex rounded-full h-3 w-3 ${gp.isFinished ? "bg-red-600" : "bg-green-600"
+                                                        }`}
+                                                ></span>
+                                            </span>
+                                        ) : null}
                                     </CardContent>
                                 </Card>
                             </Link>
