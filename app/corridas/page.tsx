@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { F1_THEME } from "@/lib/theme"
 import { F1_DRIVERS, F1_GPS } from "@/lib/constants"
 import { Flag, Trophy, Calendar, MapPin, CheckCircle, Circle, Play, Zap } from "lucide-react"
+import { redirect } from "next/navigation"
 
 export default function CorridasPage() {
   const getStatusInfo = (race: (typeof F1_GPS)[0]) => {
@@ -69,8 +70,7 @@ export default function CorridasPage() {
   }
 
   const handleRaceClick = (raceId: string, type: "race" | "sprint") => {
-    // Aqui será implementado o redirecionamento para a página da corrida
-    console.log(`Navegando para ${type} da corrida: ${raceId}`)
+    redirect(`/${raceId}`)
   }
 
   // Contar corridas sprint
