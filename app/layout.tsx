@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Mulish } from 'next/font/google'
+import { Header } from '@/components/header'
+import { Toaster } from '@/components/ui/toaster'
  
 const mulish = Mulish({
   weight: '400',
@@ -29,7 +31,11 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <meta name="theme-color" content="#111827" />
       </head>
-      <body className={mulish.className}>{children}</body>
+      <body className={mulish.className}>
+        <Header />
+        <main className="min-h-screen bg-gray-900">{children}</main>
+        <Toaster />
+      </body>
     </html>
   )
 }

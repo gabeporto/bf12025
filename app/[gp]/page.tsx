@@ -66,13 +66,6 @@ export default function BettingsPage() {
     <div className="min-h-screen bg-[url('/images/f1-background.png')] bg-cover bg-center">
       <div className="min-h-screen bg-gray-900 py-12 px-4">
         <div className="container mx-auto max-w-7xl">
-          <button
-            onClick={handleGoBack}
-            className="mb-6 px-4 py-2 text-white bg-blue-900 rounded hover:bg-blue-800"
-          >
-            Voltar
-          </button>
-
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
             <div className="lg:col-span-1">
               <ResultsInput onResultsChange={handleResultsChange} isProcessing={isProcessing} gpName={gp} gpId={pathname} />
