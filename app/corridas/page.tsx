@@ -56,7 +56,7 @@ export default function CorridasPage() {
   }
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
+    const date = new Date(dateString + 'T00:00:00') 
     return {
       day: date.getDate().toString().padStart(2, "0"),
       month: date.toLocaleDateString("pt-BR", { month: "short" }).toUpperCase(),
@@ -90,18 +90,11 @@ export default function CorridasPage() {
               }}
             >
               <CardTitle className="text-2xl sm:text-3xl lg:text-4xl font-bold flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                <Trophy className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400" />
-                <span>Temporada F1 2025</span>
-                <Flag className="w-8 h-8 sm:w-10 sm:h-10" />
+                {/* <Trophy className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400" /> */}
+                <span>Corridas</span>
+                {/* <Flag className="w-8 h-8 sm:w-10 sm:h-10" /> */}
               </CardTitle>
               <CardDescription className="text-white/90 text-base sm:text-lg lg:text-xl mt-2">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-                  <span>Calendário Oficial</span>
-                  <span className="hidden sm:inline">•</span>
-                  <span>{F1_GPS.length} Grandes Prêmios</span>
-                  <span className="hidden sm:inline">•</span>
-                  <span>{sprintRacesCount} Corridas Sprint</span>
-                </div>
               </CardDescription>
             </CardHeader>
           </Card>
@@ -116,7 +109,9 @@ export default function CorridasPage() {
             return (
               <Card
                 key={race.id}
-                className={`transition-all duration-300 hover:shadow-xl hover:scale-105 ${statusInfo.bgColor} ${statusInfo.borderColor} border-2`}
+                className={`transition-all duration-300 border-2 hover:shadow-xl hover:scale-105
+                  ${statusInfo.bgColor} ${statusInfo.borderColor}
+                  ${!race.hasData ? 'opacity-50 pointer-events-none' : 'opacity-100 cursor-pointer'}`}
               >
                 <CardHeader className="pb-3 px-4 pt-4">
                   <div className="flex items-start justify-between mb-2 gap-2">
@@ -160,7 +155,7 @@ export default function CorridasPage() {
                             onClick={() => handleRaceClick(race.id, "sprint")}
                             variant="outline"
                             size="sm"
-                            className="w-full flex items-center gap-2 hover:bg-purple-50 hover:border-purple-300 text-xs sm:text-sm"
+                            className={`w-full flex items-center gap-2 hover:bg-purple-50 hover:border-purple-300 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
                             disabled={!race.isFinished && !race.active}
                           >
                             <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -170,8 +165,8 @@ export default function CorridasPage() {
                           <Button
                             onClick={() => handleRaceClick(race.id, "race")}
                             size="sm"
-                            className="w-full flex items-center gap-2 text-xs sm:text-sm"
-                            style={{ backgroundColor: F1_THEME.primary }}
+                            className={`w-full flex items-center gap-2 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
+                            style={{ backgroundColor: F1_THEME.primary}}
                             disabled={!race.isFinished && !race.active}
                           >
                             <Flag className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -183,7 +178,7 @@ export default function CorridasPage() {
                         <Button
                           onClick={() => handleRaceClick(race.id, "race")}
                           size="sm"
-                          className="w-full flex items-center gap-2 text-xs sm:text-sm"
+                          className={`w-full flex items-center gap-2 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
                           style={{ backgroundColor: F1_THEME.primary }}
                           disabled={!race.isFinished && !race.active}
                         >

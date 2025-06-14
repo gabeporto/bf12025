@@ -378,6 +378,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: false,
+    hasData: false,
   },
   {
     id: "china",
@@ -389,6 +390,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: true,
+    hasData: false,
   },
   {
     id: "japao",
@@ -400,6 +402,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: false,
+    hasData: false,
   },
   {
     id: "barem",
@@ -411,6 +414,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: false,
+    hasData: false,
   },
   {
     id: "arabia",
@@ -422,6 +426,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: false,
+    hasData: false,
   },
   {
     id: "miami",
@@ -433,6 +438,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: true,
+    hasData: false,
   },
   {
     id: "emilia",
@@ -444,6 +450,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: true,
+    hasData: true,
   },
   {
     id: "monaco",
@@ -455,6 +462,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "espanha",
@@ -463,9 +471,10 @@ export const F1_GPS = [
     country: "🇪🇸",
     date: "2025-06-01",
     round: 9,
-    active: true,
-    isFinished: false,
+    active: false,
+    isFinished: true,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "canada",
@@ -474,9 +483,10 @@ export const F1_GPS = [
     country: "🇨🇦",
     date: "2025-06-15",
     round: 10,
-    active: false,
+    active: true,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "austria",
@@ -488,6 +498,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: true,
+    hasData: true,
   },
   {
     id: "grabretanha",
@@ -499,6 +510,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "belgica",
@@ -510,6 +522,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "hungria",
@@ -521,6 +534,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "paisesbaixos",
@@ -532,6 +546,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "italia",
@@ -543,6 +558,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "azerbaijao",
@@ -554,6 +570,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "singapura",
@@ -565,6 +582,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "austin",
@@ -576,6 +594,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: true,
+    hasData: true,
   },
   {
     id: "mexico",
@@ -587,6 +606,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "brasil",
@@ -598,6 +618,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: true,
+    hasData: true,
   },
   {
     id: "lasvegas",
@@ -609,6 +630,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "catar",
@@ -620,6 +642,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
   {
     id: "abudhabi",
@@ -631,6 +654,7 @@ export const F1_GPS = [
     active: false,
     isFinished: false,
     hasSprint: false,
+    hasData: true,
   },
 ]
 
