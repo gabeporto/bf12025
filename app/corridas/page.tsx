@@ -28,15 +28,15 @@ export default function CorridasPage() {
       return {
         status: "active",
         badge: (
-          <Badge className="bg-orange-500 hover:bg-orange-600 text-xs">
+          <Badge className="bg-blue-500 hover:bg-blue-600 text-xs">
             <Play className="w-3 h-3 mr-1" />
             <span className="hidden sm:inline">Ativa</span>
             <span className="sm:hidden">Now</span>
           </Badge>
         ),
-        icon: <Play className="w-4 h-4 text-orange-500" />,
-        bgColor: "bg-orange-50",
-        borderColor: "border-orange-200",
+        icon: <Play className="w-4 h-4 text-blue-500" />,
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200",
       }
     } else {
       return {
