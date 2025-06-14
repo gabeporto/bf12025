@@ -16,16 +16,19 @@ export function Header() {
       name: "Corridas",
       href: "/corridas",
       icon: Flag,
+      disabled: false,
     },
     {
       name: "Classificação",
       href: "/classificacao",
       icon: Trophy,
+      disabled: true,
     },
     {
       name: "Apostar",
       href: "/apostar",
       icon: Target,
+      disabled: true,
     },
   ]
 
@@ -70,6 +73,7 @@ export function Header() {
                         ? "bg-white text-red-600 hover:bg-gray-100"
                         : "text-white hover:bg-white/10 hover:text-white"
                     }
+                    ${item.disabled ? 'opacity-50 pointer-events-none' : 'opacity-100 cursor-pointer'}
                   `}
                 >
                   <Link href={item.href}>
