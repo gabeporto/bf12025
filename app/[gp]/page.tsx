@@ -64,7 +64,7 @@ export default function BettingsPage() {
 
   return (
     <div className="min-h-screen bg-[url('/images/f1-background.png')] bg-cover bg-center">
-      <div className="min-h-screen bg-gray-900 py-12 px-4">
+      <div className="min-h-screen bg-gray-900 py-5 px-4">
         <div className="container mx-auto max-w-7xl">
           <button
             onClick={handleGoBack}

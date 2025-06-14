@@ -17,7 +17,7 @@ export default function CorridasPage() {
           <Badge className="bg-green-500 hover:bg-green-600 text-xs">
             <CheckCircle className="w-3 h-3 mr-1" />
             <span className="hidden sm:inline">Concluída</span>
-            <span className="sm:hidden">OK</span>
+            <span className="sm:hidden">Concluída</span>
           </Badge>
         ),
         icon: <CheckCircle className="w-4 h-4 text-green-500" />,
@@ -31,7 +31,7 @@ export default function CorridasPage() {
           <Badge className="bg-blue-500 hover:bg-blue-600 text-xs">
             <Play className="w-3 h-3 mr-1" />
             <span className="hidden sm:inline">Ativa</span>
-            <span className="sm:hidden">Now</span>
+            <span className="sm:hidden">Ativa</span>
           </Badge>
         ),
         icon: <Play className="w-4 h-4 text-blue-500" />,
@@ -45,7 +45,7 @@ export default function CorridasPage() {
           <Badge variant="outline" className="text-xs">
             <Circle className="w-3 h-3 mr-1" />
             <span className="hidden sm:inline">Agendada</span>
-            <span className="sm:hidden">Soon</span>
+            <span className="sm:hidden">Agendada</span>
           </Badge>
         ),
         icon: <Circle className="w-4 h-4 text-gray-400" />,

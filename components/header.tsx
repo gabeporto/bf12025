@@ -98,7 +98,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-white/20 bg-red-600/95 backdrop-blur-sm">
+          <div className="md:hidden border-t border-white/50 backdrop-blur-sm">
             <nav className="py-4 space-y-2">
               {navigationItems.map((item) => {
                 const Icon = item.icon
@@ -112,6 +112,7 @@ export function Header() {
                     className={`
                       flex items-center space-x-3 px-4 py-3 rounded-md transition-colors mx-2
                       ${isActive ? "bg-white text-red-600" : "text-white hover:bg-white/10"}
+                      ${item.disabled ? 'opacity-50 pointer-events-none' : 'opacity-100 cursor-pointer'}
                     `}
                   >
                     <Icon className="w-5 h-5" />
