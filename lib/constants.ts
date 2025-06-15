@@ -367,6 +367,16 @@ export const BF1_TEAMS = [
   },
 ];
 
+export const BF1_RACE_POINTS = {
+  pole: 5,
+  positions: [20, 16, 14, 12, 10, 8, 7, 6, 5, 4, 3, 2],
+};
+
+export const BF1_SPRINT_POINTS = {
+  pole: 0,
+  positions: [10, 8, 6, 5, 4, 3, 2, 1, 0, 0, 0, 0],
+};
+
 export const F1_GPS = [
   {
     id: "australia",
@@ -390,7 +400,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: true,
-    hasData: false,
+    hasData: true,
   },
   {
     id: "japao",
@@ -675,6 +685,42 @@ export const F1_GPS_FINISHED = [
       9: "hamilton",
       10: "gasly",
       11: "tsunoda",
+    }
+  },
+  {
+    granPrixId: "china-sprint",
+    polePosition: "hamilton",
+    positions: {
+      0: "hamilton",
+      1: "piastri",
+      2: "verstappen",
+      3: "russell",
+      4: "leclerc",
+      5: "tsunoda",
+      6: "antonelli",
+      7: "norris",
+      8: "stroll",
+      9: "alonso",
+      10: "albon",
+      11: "gasly",
+    }
+  },
+  {
+    granPrixId: "china",
+    polePosition: "piastri",
+    positions: {
+      0: "piastri",
+      1: "norris",
+      2: "russell",
+      3: "verstappen",
+      4: "ocon",
+      5: "antonelli",
+      6: "albon",
+      7: "bearman",
+      8: "stroll",
+      9: "sainz",
+      10: "hadjar",
+      11: "lawson",
     }
   },
   {

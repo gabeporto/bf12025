@@ -70,7 +70,12 @@ export default function CorridasPage() {
   }
 
   const handleRaceClick = (raceId: string, type: "race" | "sprint") => {
-    redirect(`/${raceId}`)
+    if( type === "sprint") {
+      redirect(`/${raceId}/sprint`)
+    } else {
+      redirect(`/${raceId}`)
+    }
+
   }
 
   // Contar corridas sprint

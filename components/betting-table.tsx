@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo, useCallback } from "react"
-import { F1_DRIVERS, F1_TEAMS, BF1_TEAMS } from "@/lib/constants"
+import { F1_DRIVERS, F1_TEAMS, BF1_TEAMS, BF1_RACE_POINTS, BF1_SPRINT_POINTS } from "@/lib/constants"
 import { F1_THEME } from "@/lib/theme"
 import { getDriverInitials } from "@/lib/utils"
 import Image from "next/image"
@@ -22,12 +22,6 @@ function chunkArray<T>(array: T[], size: number): T[][] {
   return result
 }
 
-// Tabela de pontuação
-const POINTS = {
-  pole: 5,
-  positions: [20, 16, 14, 12, 10, 8, 7, 6, 5, 4, 3, 2], // Pontos para P1-P12
-}
-
 // Componente para exibir uma aposta individual
 function BettingCard({
   betting,
@@ -36,6 +30,7 @@ function BettingCard({
   rank,
   isLoading,
   detailedScores,
+  isSprint = false,
 }: {
   betting: (typeof bets.emilia)[0]
   results: RaceResults
@@ -50,6 +45,7 @@ function BettingCard({
     totalPartialPoints: number
     hasAtLeastOneExactMatch: boolean
   }
+  isSprint?: boolean
 }) {
   // Obter informações da equipe
   const team = BF1_TEAMS.find((t) => t.id === betting.team)
@@ -191,6 +187,7 @@ function BettingCard({
             const driverId = betting.positions[index as keyof typeof betting.positions]
             const isExactMatch = driverId === results.positions[index] && results.positions[index] !== ""
             const isPartialMatch = !isExactMatch && detailedScores.partialMatches.includes(driverId)
+            const POINTS = isSprint ? BF1_SPRINT_POINTS : BF1_RACE_POINTS;
 
             // Determinar pontos
             let points = null
@@ -219,14 +216,18 @@ interface BettingTableProps {
   results: RaceResults
   onScoresCalculated: (scores: BettingScore[]) => void
   isLoading: boolean
+  isSprint?: boolean
 }
 
-export function BettingTable({ results, onScoresCalculated, isLoading }: BettingTableProps) {
+export function BettingTable({ results, onScoresCalculated, isLoading, isSprint }: BettingTableProps) {
   const pathname = usePathname();
-  const gp = pathname.split("/").pop() as keyof typeof bets;
-  const [bettings] = useState(() => bets[gp] || []);
+  const gpRaw = isSprint ? pathname.split("/")[1] : pathname.split("/").pop();
+  const gp = (Object.keys(bets) as Array<keyof typeof bets>).find(key => key === gpRaw) as keyof typeof bets | undefined;
+  const [bettings] = useState(() => (gp ? bets[gp] : []));
   const [calculationInProgress, setCalculationInProgress] = useState(false)
   const [detailedScores, setDetailedScores] = useState<Record<string, any>>({})
+
+  const POINTS = isSprint ? BF1_SPRINT_POINTS : BF1_RACE_POINTS;
 
   if(!bettings || bettings.length === 0) {
     return (<></>)
@@ -273,7 +274,7 @@ export function BettingTable({ results, onScoresCalculated, isLoading }: Betting
             const resultPosition = results.positions[i]
 
             // Se não é um acerto exato, mas o piloto está entre os resultados
-            if (betPosition !== resultPosition && resultDriverIds.includes(betPosition) && betPosition !== "") {
+            if (betPosition !== resultPosition && resultDriverIds.includes(betPosition) && betPosition !== "" && !isSprint) {
               score += 1 // +1 ponto por acerto parcial
               partialMatches.push(betPosition)
             }

@@ -32,6 +32,7 @@ interface ResultsInputProps {
   isProcessing: boolean
   gpName: string
   gpId: string
+  isSprint?: boolean
 }
 
 export function ResultsInput({
@@ -39,6 +40,7 @@ export function ResultsInput({
   isProcessing,
   gpName,
   gpId,
+  isSprint = false,
 }: ResultsInputProps) {
   const [isRaceFinished, setIsRaceFinished] = useState<boolean>(false)
   const [results, setResults] = useState<RaceResults>({
@@ -53,8 +55,10 @@ export function ResultsInput({
     if (!gpName) return
 
     const resultData = F1_GPS_FINISHED.find(
-      (object) => object.granPrixId === gpId.slice(1)
+      (object) => object.granPrixId === (isSprint ? gpId + "-sprint" : gpId.slice(1))
     )
+
+    console.log(gpId)
 
     if (resultData) {
       setResults(resultData)
