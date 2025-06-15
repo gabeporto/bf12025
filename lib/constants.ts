@@ -412,7 +412,7 @@ export const F1_GPS = [
     active: false,
     isFinished: true,
     hasSprint: false,
-    hasData: false,
+    hasData: true,
   },
   {
     id: "barem",
@@ -721,6 +721,24 @@ export const F1_GPS_FINISHED = [
       9: "sainz",
       10: "hadjar",
       11: "lawson",
+    }
+  },
+  {
+    granPrixId: "japao",
+    polePosition: "verstappen",
+    positions: {
+      0: "verstappen",
+      1: "norris",
+      2: "piastri",
+      3: "leclerc",
+      4: "russell",
+      5: "antonelli",
+      6: "hamilton",
+      7: "hadjar",
+      8: "albon",
+      9: "bearman",
+      10: "alonso",
+      11: "tsunoda",
     }
   },
   {
