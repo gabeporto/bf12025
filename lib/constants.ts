@@ -497,7 +497,7 @@ export const F1_GPS = [
     round: 11,
     active: false,
     isFinished: false,
-    hasSprint: true,
+    hasSprint: false,
     hasData: false,
   },
   {
@@ -521,7 +521,7 @@ export const F1_GPS = [
     round: 13,
     active: false,
     isFinished: false,
-    hasSprint: false,
+    hasSprint: true,
     hasData: false,
   },
   {
@@ -641,7 +641,7 @@ export const F1_GPS = [
     round: 23,
     active: false,
     isFinished: false,
-    hasSprint: false,
+    hasSprint: true,
     hasData: false,
   },
   {
