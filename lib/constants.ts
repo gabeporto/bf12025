@@ -449,7 +449,7 @@ export const F1_GPS = [
     round: 7,
     active: false,
     isFinished: true,
-    hasSprint: true,
+    hasSprint: false,
     hasData: true,
   },
   {
