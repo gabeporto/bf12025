@@ -484,7 +484,7 @@ export const F1_GPS = [
     date: "2025-06-15",
     round: 10,
     active: true,
-    isFinished: false,
+    isFinished: true,
     hasSprint: false,
     hasData: true,
   },
@@ -711,6 +711,24 @@ export const F1_GPS_FINISHED = [
       9: "verstappen",
       10: "lawson",
       11: "bortoleto",
+    }
+  },
+  {
+    granPrixId: "canada",
+    polePosition: "russell",
+    positions: {
+      0: "russell",
+      1: "verstappen",
+      2: "antonelli",
+      3: "piastri",
+      4: "leclerc",
+      5: "hamilton",
+      6: "alonso",
+      7: "hulkenberg",
+      8: "ocon",
+      9: "sainz",
+      10: "bearman",
+      11: "tsunoda",
     }
   },
 ];
