@@ -68,7 +68,7 @@ export default function BettingsPage() {
         <div className="container mx-auto max-w-7xl">
           <button
             onClick={handleGoBack}
-            className="mb-6 px-4 py-2 text-white bg-blue-900 rounded hover:bg-blue-800"
+            className="mb-6 px-4 py-2 text-white bg-blue-800 rounded hover:bg-blue-700"
           >
             Voltar
           </button>
@@ -77,24 +77,20 @@ export default function BettingsPage() {
               <ResultsInput onResultsChange={handleResultsChange} isProcessing={isProcessing} gpName={gp + " (SPRINT)"} gpId={path} isSprint={true} />
             </div>
             <div className="lg:col-span-3">
-              <Leaderboard scores={scores} isLoading={isProcessing && allInputsFilled} />
+              <Leaderboard scores={scores} isLoading={isProcessing && allInputsFilled} isSprint={true} />
             </div>
           </div>
 
           <Card className="border-0 shadow-xl overflow-hidden">
             <CardHeader
-              className="text-white"
-              style={{
-                background: F1_THEME.gradients.header,
-                borderBottom: `4px solid ${F1_THEME.primary}`,
-              }}
+              className={"bg-gradient-to-r from-blue-600 to-blue-800 text-white"}
             >
               <div className="flex items-center justify-center gap-3 mb-2">
                 <Flag size={24} className="text-white" />
                 <CardTitle className="text-3xl font-bold text-center">{gp}</CardTitle>
               </div>
               <CardDescription className="text-center text-white">
-                <p className="text-lg">Resultados da corrida sprint</p>
+                <p className="text-lg">Resultados da Sprint</p>
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6 bg-white">

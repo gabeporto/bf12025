@@ -58,8 +58,6 @@ export function ResultsInput({
       (object) => object.granPrixId === (isSprint ? gpId + "-sprint" : gpId.slice(1))
     )
 
-    console.log(gpId)
-
     if (resultData) {
       setResults(resultData)
       setIsRaceFinished(true)
@@ -127,7 +125,7 @@ export function ResultsInput({
         </div>
       )}
 
-      <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 text-white">
+      <CardHeader className={isSprint ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white" : "bg-gradient-to-r from-red-600 to-red-800 text-white"}>
         <CardTitle className="text-xl flex items-center gap-2">
           <Flag size={18} />
           {gpName + " " + new Date().getFullYear()}

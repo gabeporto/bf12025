@@ -124,7 +124,7 @@ export default function CorridasPage() {
                       <span className="text-xl sm:text-2xl">{race.country}</span>
                       {statusInfo.icon}
                       {race.hasSprint && (
-                        <Badge variant="secondary" className="bg-purple-100 text-purple-700 border-purple-300 text-xs">
+                        <Badge variant="secondary" className="bg-blue-100 text-blue-700 border-blue-300 text-xs">
                           <Zap className="w-3 h-3 mr-1" />
                           <span className="hidden sm:inline">Sprint</span>
                           <span className="sm:hidden">S</span>
@@ -160,7 +160,7 @@ export default function CorridasPage() {
                             onClick={() => handleRaceClick(race.id, "sprint")}
                             variant="outline"
                             size="sm"
-                            className={`w-full flex items-center gap-2 hover:bg-purple-50 hover:border-purple-300 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
+                            className={`w-full flex items-center gap-2 hover:bg-blue-50 hover:border-blue-300 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
                             disabled={!race.isFinished && !race.active}
                           >
                             <Zap className="w-3 h-3 sm:w-4 sm:h-4" />

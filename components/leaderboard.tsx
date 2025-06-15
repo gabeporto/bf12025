@@ -20,9 +20,10 @@ export interface BettingScore {
 interface LeaderboardProps {
   scores: BettingScore[]
   isLoading: boolean
+  isSprint?: boolean
 }
 
-export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
+export function Leaderboard({ scores, isLoading, isSprint }: LeaderboardProps) {
   // Ordenar por pontuação (maior para menor)
   const sortedScores = [...scores].sort((a, b) => {
       if (a.score !== b.score) {
@@ -69,7 +70,7 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
           </div>
         )}
 
-        <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 text-white">
+        <CardHeader className={isSprint ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white" : "bg-gradient-to-r from-red-600 to-red-800 text-white"}>
           <CardTitle className="text-xl">Classificação por Piloto</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
@@ -177,7 +178,7 @@ export function Leaderboard({ scores, isLoading }: LeaderboardProps) {
           </div>
         )}
 
-        <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 text-white">
+        <CardHeader className={isSprint ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white" : "bg-gradient-to-r from-red-600 to-red-800 text-white"}>
           <CardTitle className="text-xl">Classificação por Equipe</CardTitle>
         </CardHeader>
         <CardContent className="p-4">

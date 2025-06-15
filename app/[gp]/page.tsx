@@ -68,7 +68,7 @@ export default function BettingsPage() {
         <div className="container mx-auto max-w-7xl">
           <button
             onClick={handleGoBack}
-            className="mb-6 px-4 py-2 text-white bg-blue-900 rounded hover:bg-blue-800"
+            className="mb-6 px-4 py-2 text-white bg-blue-800 rounded hover:bg-blue-700"
           >
             Voltar
           </button>
