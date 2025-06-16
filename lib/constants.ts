@@ -389,6 +389,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "19",
+    teamWinnerId: "tororosso",
   },
   {
     id: "china",
@@ -401,6 +403,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: true,
     hasData: true,
+    driverWinnerId: "1",
+    teamWinnerId: "alfaromeo",
   },
   {
     id: "japao",
@@ -413,6 +417,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "18",
+    teamWinnerId: "mercedes",
   },
   {
     id: "barem",
@@ -425,6 +431,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "17",
+    teamWinnerId: "alfaromeo",
   },
   {
     id: "arabia",
@@ -437,6 +445,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "11",
+    teamWinnerId: "forceindia",
   },
   {
     id: "miami",
@@ -461,6 +471,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "7",
+    teamWinnerId: "bmw",
   },
   {
     id: "monaco",
@@ -473,6 +485,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "24",
+    teamWinnerId: "sauber",
   },
   {
     id: "espanha",
@@ -485,6 +499,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "12",
+    teamWinnerId: "ferrari",
   },
   {
     id: "canada",
@@ -497,6 +513,8 @@ export const F1_GPS = [
     isFinished: true,
     hasSprint: false,
     hasData: true,
+    driverWinnerId: "3",
+    teamWinnerId: "sauber",
   },
   {
     id: "austria",

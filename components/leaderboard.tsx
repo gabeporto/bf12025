@@ -159,7 +159,7 @@ export function Leaderboard({ scores, isLoading, isSprint }: LeaderboardProps) {
                         score.score
                       )}
                     </TableCell>
-                    <TableCell className="text-center" >{score.correctPredictions}</TableCell>
+                    <TableCell className="text-center"> {score.correctPredictions}</TableCell>
                   </TableRow>
                 )
               })}

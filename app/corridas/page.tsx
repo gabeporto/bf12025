@@ -4,9 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { F1_THEME } from "@/lib/theme"
-import { F1_DRIVERS, F1_GPS } from "@/lib/constants"
+import { BF1_DRIVERS, BF1_TEAMS, F1_DRIVERS, F1_GPS, F1_GPS_FINISHED } from "@/lib/constants"
 import { Flag, Trophy, Calendar, MapPin, CheckCircle, Circle, Play, Zap } from "lucide-react"
 import { redirect } from "next/navigation"
+import Image from "next/image"
 
 export default function CorridasPage() {
   const getStatusInfo = (race: (typeof F1_GPS)[0]) => {
@@ -56,7 +57,7 @@ export default function CorridasPage() {
   }
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString + 'T00:00:00') 
+    const date = new Date(dateString + 'T00:00:00')
     return {
       day: date.getDate().toString().padStart(2, "0"),
       month: date.toLocaleDateString("pt-BR", { month: "short" }).toUpperCase(),
@@ -70,12 +71,29 @@ export default function CorridasPage() {
   }
 
   const handleRaceClick = (raceId: string, type: "race" | "sprint") => {
-    if( type === "sprint") {
+    if (type === "sprint") {
       redirect(`/${raceId}/sprint`)
     } else {
       redirect(`/${raceId}`)
     }
+  }
 
+  const getWinnerInfo = (race: (typeof F1_GPS)[0]) => {
+    if (!race.isFinished) return null
+
+    const winnerDriver = BF1_DRIVERS.find((d) => d.id === race.driverWinnerId)
+    const teamOfWinner = BF1_TEAMS.find((t) => t.id === winnerDriver?.team)
+    if (!winnerDriver) return null
+    const winnerDriverWithTeam = {
+      ...winnerDriver,
+      teamOfWinner,
+    }
+
+    const winnerTeam = BF1_TEAMS.find((t) => t.id === race.teamWinnerId)
+    return {
+      driver: winnerDriverWithTeam,
+      team: winnerTeam,
+    }
   }
 
   // Contar corridas sprint
@@ -110,6 +128,7 @@ export default function CorridasPage() {
           {F1_GPS.map((race) => {
             const statusInfo = getStatusInfo(race)
             const dateInfo = formatDate(race.date)
+            const winnerInfo = getWinnerInfo(race)
 
             return (
               <Card
@@ -133,24 +152,63 @@ export default function CorridasPage() {
                     </div>
                     <div className="flex-shrink-0">{statusInfo.badge}</div>
                   </div>
-                  <CardTitle className="text-base sm:text-lg font-bold leading-tight">{race.name}</CardTitle>
-                  <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                    <span className="truncate">{race.location}</span>
-                  </div>
+                  
                 </CardHeader>
                 <CardContent className="pt-0 px-4 pb-4">
                   <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-xs sm:text-sm">
-                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 flex-shrink-0" />
-                        <span className="font-medium">Corrida {race.round}</span>
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div>
+                        <CardTitle className="text-base sm:text-lg font-bold leading-tight flex-grow">
+                          {race.name}
+                        </CardTitle>
+                        <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+                          <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                          <span className="truncate">{race.location}</span>
+                        </div>
                       </div>
-                      <div className="text-right">
+                      <div className="text-right flex-shrink-0">
                         <div className="text-base sm:text-lg font-bold text-red-600">{dateInfo.day}</div>
                         <div className="text-xs text-gray-500">{dateInfo.month}</div>
                       </div>
                     </div>
+
+                    {winnerInfo && (
+                      <div className="pt-2 border-t border-gray-200 space-y-3">
+                        {/* Vencedor da Corrida */}
+                        <div>
+                          <div className="text-xs text-gray-500 mb-2">Piloto vencedor</div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 overflow-hidden flex-shrink-0 flex items-center justify-center">
+                              <Image
+                                src={winnerInfo.driver.teamOfWinner?.logo|| "/placeholder.svg"}
+                                alt={winnerInfo.team?.name || "Piloto"}
+                                width={24}
+                                height={24}
+                                className="object-cover"
+                              />
+                            </div>
+                            <span className="font-bold text-xs sm:text-sm truncate">{winnerInfo.driver.betterName}</span>
+                          </div>
+                        </div>
+
+                        {/* Equipe Vencedora */}
+                        <div>
+                          <div className="text-xs text-gray-500 mb-2">Equipe vencedora</div>
+                          <div className="flex items-center gap-2 ">
+                            <div className="w-6 h-6 overflow-hidden flex-shrink-0 flex items-center justify-center">
+                              <Image
+                                src={winnerInfo.team?.logo || "/placeholder.svg"}
+                                alt={winnerInfo.team?.name || "Equipe"}
+                                width={24}
+                                height={24}
+                                className="object-cover"
+                              />
+                            </div>
+                            <span className="font-bold text-xs sm:text-sm truncate">{winnerInfo.team?.name}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Botões de Ação */}
                     <div className="pt-3 border-t border-gray-200">
@@ -160,7 +218,7 @@ export default function CorridasPage() {
                             onClick={() => handleRaceClick(race.id, "sprint")}
                             variant="outline"
                             size="sm"
-                            className={`w-full flex items-center gap-2 hover:bg-blue-50 hover:border-blue-300 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
+                            className={`w-full flex items-center gap-2 hover:bg-blue-50 hover:border-blue-300 text-xs sm:text-sm ${race.hasData ? '' : 'hidden'}`}
                             disabled={!race.isFinished && !race.active}
                           >
                             <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -170,8 +228,8 @@ export default function CorridasPage() {
                           <Button
                             onClick={() => handleRaceClick(race.id, "race")}
                             size="sm"
-                            className={`w-full flex items-center gap-2 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
-                            style={{ backgroundColor: F1_THEME.primary}}
+                            className={`w-full flex items-center gap-2 text-xs sm:text-sm ${race.hasData ? '' : 'hidden'}`}
+                            style={{ backgroundColor: F1_THEME.primary }}
                             disabled={!race.isFinished && !race.active}
                           >
                             <Flag className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -183,7 +241,7 @@ export default function CorridasPage() {
                         <Button
                           onClick={() => handleRaceClick(race.id, "race")}
                           size="sm"
-                          className={`w-full flex items-center gap-2 text-xs sm:text-sm ${race.hasData ?  '' : 'hidden'}`}
+                          className={`w-full flex items-center gap-2 text-xs sm:text-sm ${race.hasData ? '' : 'hidden'}`}
                           style={{ backgroundColor: F1_THEME.primary }}
                           disabled={!race.isFinished && !race.active}
                         >
